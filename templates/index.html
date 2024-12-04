@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rail Sheba</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+          <img src="https://eticket.railway.gov.bd/assets/img/home/bangladesh-railway.png" alt="Bangladesh Railway Logo">
+          <span class="bd-railway">Bangladesh Railway</span>
+      </div>
+      <div class="nav-menu">
+          <a href="#">Home</a>
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+          <a href="#">Train Information</a>
+          <a href="#">Contact Us</a>
+      </div>
+  </div>
+
+  </header>
+  <main>
+    <div class="form-container">
+      <form>
+        <div class="form-group">
+          <label for="from-station">From</label>
+          <select id="from-station" name="from">
+            <option value="">Select Station</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="to-station">To</label>
+          <select id="to-station" name="to">
+            <option value="">Select Station</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="class">Class</label>
+          <select id="class" name="class">
+            <option value="">Select Class</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Journey Date</label>
+          <input type="date" id="date" name="date">
+        </div>
+        <button type="submit" class="search-btn">Search Trains</button>
+      </form>
+    </div>
+  </main>
+  <!-- Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <div class="nav-menu-bottom">
+        <a href="#" class="nav-item active">
+                <span class="text"><span class="icon"> <img src="https://railapp.railway.gov.bd/assets/icons/svgs/menu/buy_ticket.svg" alt="Rail Logo" class="active-img"></span> <br>Buy Tickets </span>
+          </a>
+          <a href="#" class="nav-item">
+            <span class="text"><span class="icon"> <img src="https://railapp.railway.gov.bd/assets/icons/svgs/menu/history.svg" alt="My Ticket" class=""></span> <br> My Tickets</span>
+          </a>
+          <a href="#" class="nav-item">
+            <span class="text"><span class="icon"> <img src="https://railapp.railway.gov.bd/assets/icons/svgs/menu/user.svg" alt="Account" class=""></span> <br>My Account</span>
+          </a>
+
+    </div>
+
+  </nav>
+</body>
+</html>

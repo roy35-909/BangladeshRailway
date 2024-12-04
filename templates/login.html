@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Railway Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e8f0f2;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .login-container .form-group {
+            margin-bottom: 15px;
+        }
+        .login-container .btn {
+            width: 100%;
+        }
+        .login-container .register-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .train-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            display: block;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .content{
+            display: flex;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-info">
+            <img src="https://eticket.railway.gov.bd/assets/img/home/bangladesh-railway.png" alt="Bangladesh Railway Logo" class="logo">
+            <h1 class="text-center">Bangladesh Railway</h1>
+            <p class="text-center">নিরাপদ • আরামদায়ক • সহজ্র</p>
+        </div>
+
+        <div class="content">
+            <div class="login-container">
+                <form>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" class="form-control" id="phone" placeholder="01682921257">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-success">LOGIN</button>
+                    <a href="#" class="register-link">REGISTER</a>
+                </form>
+                <div class="text-center mt-3">
+                    <a href="#">Forgot Password?</a> | <a href="#">Need Help?</a>
+                </div>
+            </div>
+            <img src="https://eticket.railway.gov.bd/assets/img/login-page-bg.svg" alt="Train Image" class="train-image">
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

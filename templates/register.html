@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Railway Register</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .register-container {
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            width: 100%;
+        }
+        .register-form {
+            padding: 20px;
+            flex: 1;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .form-group label {
+            text-align: left;
+        }
+        .btn {
+            width: 100%;
+        }
+        .train-image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 20px;
+        }
+        .train-image {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 200px;
+        }
+        .show-password {
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1, .header p {
+            margin: 0;
+        }
+        .back-to-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .back-to-home i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="back-to-home"><i class="fas fa-home"></i> Back to Home</a>
+    <div class="container">
+        <div class="register-container">
+            <div class="register-form">
+                <div class="header">
+                    <img src="https://eticket.railway.gov.bd/assets/img/home/bangladesh-railway.png" alt="Bangladesh Railway Logo" class="logo">
+                    <h1>Bangladesh Railway</h1>
+                    <p>নিরাপদ • আরামদায়ক • সহজ্র</p>
+                </div>
+                <form id="registerForm">
+                    <div class="form-group row">
+                        <label for="nid" class="col-sm-4 col-form-label">NID</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="nid" placeholder="Enter your NID" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="phone" class="col-sm-4 col-form-label">Phone Number</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-4 col-form-label">Email</label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-4 col-form-label">Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" id="password" placeholder="Password" required>
+                            <i class="far fa-eye show-password" onclick="togglePasswordVisibility('password', this)"></i>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="confirmPassword" class="col-sm-4 col-form-label">Confirm Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+                            <i class="far fa-eye show-password" onclick="togglePasswordVisibility('confirmPassword', this)"></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">REGISTER</button>
+                </form>
+                <div id="form-message" class="mt-3"></div>
+            </div>
+            <div class="train-image-container">
+                <img src="https://img.freepik.com/premium-vector/train-with-train-front-palm-tree-right_1095437-11812.jpg?semt=ais_hybrid" alt="Train Image" class="train-image">
+            </div>
+        </div>
+    </div>
+    <script>
+        function togglePasswordVisibility(id, icon) {
+            const passwordField = document.getElementById(id);
+            const passwordType = passwordField.getAttribute('type');
+            if (passwordType === 'password') {
+                passwordField.setAttribute('type', 'text');
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.setAttribute('type', 'password');
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                document.getElementById('form-message').innerText = 'Passwords do not match!';
+                document.getElementById('form-message').style.color = 'red';
+            } else {
+                document.getElementById('form-message').innerText = 'Registration successful!';
+                document.getElementById('form-message').style.color = 'green';
+                // Here you would normally submit the form data to the server
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
