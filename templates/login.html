@@ -59,20 +59,24 @@
 
         <div class="content">
             <div class="login-container">
-                <form>
+                <form method="POST" action="/auth/login/">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="text" class="form-control" id="phone" placeholder="01682921257">
+                        <input type="text" class="form-control" id="phone" placeholder="01682921257" name="phone">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
+                        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
                     </div>
                     <button type="submit" class="btn btn-success">LOGIN</button>
                     <a href="#" class="register-link">REGISTER</a>
                 </form>
                 <div class="text-center mt-3">
                     <a href="#">Forgot Password?</a> | <a href="#">Need Help?</a>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
                 </div>
             </div>
             <img src="https://eticket.railway.gov.bd/assets/img/login-page-bg.svg" alt="Train Image" class="train-image">

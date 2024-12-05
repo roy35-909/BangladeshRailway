@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .navbar {
+            background-color: #006400;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .logo img {
+            max-height: 50px;
+            margin-right: 10px;
+        }
+        .navbar .nav-menu {
+            display: flex;
+        }
+        .navbar .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .navbar .nav-menu a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .header .users {
+            font-size: 14px;
+            color: #4caf50;
+        }
+        .train {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .train h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #ff9800;
+        }
+        .train .details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .train .details .departure,
+        .train .details .arrival {
+            font-size: 14px;
+            color: #333;
+        }
+        .train .details .duration {
+            font-size: 14px;
+            color: #4caf50;
+        }
+        .train .tickets {
+            display: flex;
+            justify-content: space-between;
+        }
+        .train .tickets .ticket {
+            background-color: #e0f7fa;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            width: 23%;
+        }
+        .train .tickets .ticket h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .train .tickets .ticket p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .train .tickets .ticket .price {
+            font-size: 16px;
+            color: #ff5722;
+        }
+        .train .tickets .ticket .availability {
+            font-size: 14px;
+            color: #4caf50;
+        }
+        .train .tickets .ticket button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .train .tickets .ticket button:hover {
+            background-color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://eticket.railway.gov.bd/assets/img/home/bangladesh-railway.png" alt="Bangladesh Railway Logo">
+            <span>Bangladesh Railway</span>
+        </div>
+        <div class="nav-menu">
+            <a href="/">Home</a>
+            <a href="/">Train Information</a>
+            <a href="#">Contact Us</a>
+            {% if user.is_authenticated %}
+            <a href="/auth/logout/">Logout</a>
+            <a href="#"> Hello, {{user.first_name}} </a>
+            {% else %}
+            <a href="/auth/login/">Login</a>
+            <a href="/auth/register">Register</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Dhaka to Cox's Bazar</h1>
+            <div class="users">Total Active Users on this page: 42</div>
+        </div>
+
+
+        {% for i in available_train %}
+        <div class="train">
+            <h2>{{i.Train.train_name}}</h2>
+            <div class="details">
+                <div class="departure">Departure: {{i.to.name}}<br>{{i.start_time}}</div>
+                <div class="duration">08h 45m</div>
+                <div class="arrival">Arrival: {{i.frm.name}}<br>{{i.end_time}}</div>
+            </div>
+            <div class="tickets">
+                <div class="ticket">
+                    <h3>S_CHAIR</h3>
+                    <p class="price">৳695</p>
+                    <p class="availability">Available Tickets (Counter & Online): 260</p>
+                    <button>BOOK NOW</button>
+                </div>
+                <div class="ticket">
+                    <h3>SNIGDHA</h3>
+                    <p class="price">৳1325</p>
+                    <p class="availability">Available Tickets (Counter & Online): 100</p>
+                    <button>BOOK NOW</button>
+                </div>
+                <div class="ticket">
+                    <h3>AC_S</h3>
+                    <p class="price">৳1565</p>
+                    <p class="availability">Available Tickets (Counter & Online): 80</p>
+                    <button>BOOK NOW</button>
+                </div>
+                <div class="ticket">
+                    <h3>AC_B</h3>
+                    <p class="price">৳2000</p>
+                    <p class="availability">Available Tickets (Counter & Online): 50</p>
+                    <button>BOOK NOW</button>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+
+    </div>
+</body>
+</html>
